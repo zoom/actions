@@ -1,4 +1,4 @@
-This is an example zm.fetch structure to **post to channel webhook** in Microsoft Teams. 
+This is an example zm.fetch structure to **post to channel webhook** for Microsoft Teams. 
 
 ```JavaScript
 zm.log.info('Posting to Microsoft Teams');
