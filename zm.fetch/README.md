@@ -10,7 +10,8 @@ This document explains how to use zm.fetch in Zoom custom actions to call third-
 6. [PUT and PATCH requests](#put-and-patch-requests)
 7. [Query parameters](#query-parameters)
 8. [Response handling](#response-handling)
-9. [Best practices](#best-practices) 
+9. [Best practices](#best-practices)
+10. [Quick reference](#quick-reference)
 
 ## Prerequisite
 Third-party endpoints and URLs are defined in [Connect](https://developers.zoom.us/docs/build-flow/connect/). 
@@ -430,12 +431,26 @@ const projectId = customFields.projectId;
 // ✅ Also good — direct find for one-off access
 const projectId = ctx.customField.find(f => f.fieldId === 'projectId')?.value;
 ```
-
-
    
 ## Quick reference  
 
+Replace placeholder URLs and field names with your actual pre-configured endpoints and field IDs. Every endpoint used in `zm.fetch` must be defined in your app's [Connect](https://developers.zoom.us/docs/build-flow/connect/) configuration pages.
 
+| Feature | Syntax |
+|---------|--------|
+| GET request | `zm.fetch({ url: '/endpoint' })` |
+| POST request | `zm.fetch({ url: '/endpoint', method: 'POST', data: { } })` |
+| PUT request | `zm.fetch({ url: '/endpoint', method: 'PUT', data: { } })` |
+| PATCH request | `zm.fetch({ url: '/endpoint', method: 'PATCH', data: { } })` |
+| DELETE request | `zm.fetch({ url: '/endpoint', method: 'DELETE' })` |
+| Query params | `zm.fetch({ url: '/endpoint', params: { key: 'value' } })` |
+| Non-auth headers | `zm.fetch({ url: '/endpoint', headers: { 'Notion-Version': '2022-06-28' } })` |
+| Input data value | `ctx.inputData.fieldName.value` |
+| Custom field (find) | `ctx.customField.find(f => f.fieldId === 'myField')?.value` |
+| Success handler | `zm.handleResponse(result, body => { }, (code, msg, body) => { })` |
+| Error response | `zm.errorResponse(code, message, body)` |
+| Log info | `zm.log.info('Message {}', variable)` |
+| Log error | `zm.log.error('Error {}', variable)` |
 
 
 
