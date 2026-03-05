@@ -377,6 +377,50 @@ zm.log.error('Failed. Code: {}, message: {}', code, message);
 // ❌ Bad — string concatenation
 zm.log.info('Processing user ' + userId.value + ' with status ' + status.value);
 ```
+### Use params for query parameters  
+```JavaScript
+// ✅ Good — use params object
+const result = await zm.fetch({
+    url: '/search',
+    params: { q: searchTerm.value, page: 1 }
+});
+
+// ❌ Bad — manual URL construction
+const result = await zm.fetch({
+    url: `/search?q=${searchTerm.value}&page=1`
+});
+```
+### Pass objects directly to data  
+```JavaScript
+// ✅ Good — plain object
+data: { name: userName.value, email: userEmail.value }
+
+// ❌ Bad — unnecessary stringification
+data: JSON.stringify({ name: userName.value, email: userEmail.value })
+```
+### Access input values with .value  
+```JavaScript
+// ✅ Correct — each inputData field is an object, use .value
+const { name, email } = ctx.inputData;
+zm.log.info('Name: {}', name.value);
+zm.log.info('Email: {}', email.value);
+
+// ❌ Wrong — missing .value
+zm.log.info('Name: {}', name);  // This is the field object, not the string
+```
+### Map custom fields array for easy access
+```JavaScript
+// ✅ Good — map once at the top, use throughout
+const customFields = {};
+ctx.customField.forEach(field => {
+    customFields[field.fieldId] = field.value;
+});
+const projectId = customFields.projectId;
+
+// ✅ Also good — direct find for one-off access
+const projectId = ctx.customField.find(f => f.fieldId === 'projectId')?.value;
+```
+
 
    
 ## Quick reference  
