@@ -328,10 +328,58 @@ return zm.handleResponse(result,
 );
 ```
 ## Response handling  
-(This `zm.handleResponse` method is a helper utility and is not required.)  
+(This `zm.handleResponse` method is a helper utility. It is not required, but we recommend it as a best practice.)  
 The `zm.fetch method` returns a complete response structure with the HTTP status code. The `zm.handleResponse` method checks whether the response's HTTP status code is in the 2xx or 3xx range. If it is, the `success callback` function (the second parameter of the method) is called; otherwise, the `failure callback` function (the third parameter of the method) is called. 
 
 **Note**: Make sure you map your script’s output response to a JSON object that matches your action’s output definition.  
+
+## Best practices  
+### Authentication  
+**Do not add authentication headers.** Custom actions automatically handles authentication.
+
+### Always specify method for non-GET requests
+  ```JavaScript
+  // ✅ GET — method not needed
+   const result = await zm.fetch({ url: '/items' });
+
+   // ✅ POST — method required
+   const result = await zm.fetch({ url: '/items', method: 'POST', data: { name: 'New' } });
+
+   // ✅ PUT — method required
+   const result = await zm.fetch({ url: '/items/123', method: 'PUT', data: { name: 'Updated' } });
+
+   // ✅ PATCH — method required
+   const result = await zm.fetch({ url: '/items/123', method: 'PATCH', data: { status: 'done' } });
+
+   // ✅ DELETE — method required
+   const result = await zm.fetch({ url: '/items/123', method: 'DELETE' });
+  ```
+### Endpoints must be pre-configured  
+   Every URL path used in `zm.fetch` must be defined in your app's [Connect](https://developers.zoom.us/docs/build-flow/connect/) configuration pages first. You cannot call arbitrary URLs.  
+   
+### Always use zm.handleResponse()
+   ```JavaScript
+   // ✅ Good — structured success and error handling
+   return zm.handleResponse(result,
+       body => body,
+       (code, message, body) => {
+           zm.log.error('Error: {}', message);
+           return zm.errorResponse(code, message, body);
+       }
+   );
+   ```
+### Use structured logging  
+```JavaScript
+// ✅ Good — placeholders for structured logging
+zm.log.info('Processing user {} with status {}', userId.value, status.value);
+zm.log.error('Failed. Code: {}, message: {}', code, message);
+
+// ❌ Bad — string concatenation
+zm.log.info('Processing user ' + userId.value + ' with status ' + status.value);
+```
+
+   
+## Quick reference  
 
 
 
