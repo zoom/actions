@@ -2,7 +2,7 @@ This document explains how to use zm.fetch in Zoom custom actions to call third-
 
 **This information is supplemental to the Zoom developer's documentation for [Actions](https://developers.zoom.us/docs/build-flow/actions/#transformations).**  
 ## Contents 
-1. [Prequisite](#prerequisite)
+1. [Prerequisite](#prerequisite)
 2. [Understanding zm.fetch structure](#understanding-zmfetch-structure)
 3. [Context objects](#context-objects)
 4. [Basic GET requests](#basic-get-requests)
