@@ -1,6 +1,12 @@
 This information is supplemental to the Zoom developer's documentation for [Actions](https://developers.zoom.us/docs/build-flow/actions/).  
 
+This document illustrates how to use zm.fetch within Zoom custom actions to invoke third-party endpoints. It includes information on script syntax, how to populate headers, data, and params with different structures, and provides filled-out examples with sample endpoints.  
+
+
+Based on the Zoom Actions SDK, these examples demonstrate the required parameter structures and implementation standards.
+
 This document provides examples of using `zm.fetch` within Zoom custom actions to integrate with various third-party platforms. These examples are based on the official Zoom Actions SDK and demonstrate the correct parameter structure.  
+
 
 ## Prerequisite
 Third-party endpoints and URLs are defined in [Connect](https://developers.zoom.us/docs/build-flow/connect/). 
