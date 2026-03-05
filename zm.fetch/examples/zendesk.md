@@ -1,4 +1,4 @@
-This is an example zm.fetch structure to **create support ticket** in Zendesk. 
+This is an example zm.fetch structure to **create support ticket** for Zendesk. 
 
 ```JavaScript
 zm.log.info('Creating Zendesk ticket');
