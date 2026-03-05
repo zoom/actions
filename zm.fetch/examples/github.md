@@ -1,4 +1,4 @@
-This is an example zm.fetch structure to **create a repository issue** in GitHub.  
+This is an example zm.fetch structure to **create a repository issue** for GitHub.  
 
 ```JavaScript
 zm.log.info('Creating GitHub issue');
