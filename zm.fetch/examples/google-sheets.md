@@ -1,4 +1,4 @@
-This is an example zm.fetch structure to **append row** in Google Sheets. 
+This is an example zm.fetch structure to **append row** for Google Sheets. 
 
 ```JavaScript
 zm.log.info('Appending row to Google Sheet');
