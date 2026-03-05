@@ -1,4 +1,4 @@
-This is an example zm.fetch structure to **Post a message to channel** in Slack.  
+This is an example zm.fetch structure to **Post a message to channel** for Slack.  
 
 ```JavaScript
 zm.log.info('Posting message to Slack');
