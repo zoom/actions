@@ -1,4 +1,4 @@
-```javascript  
+```JavaScript 
 
 zm.log.info('Posting message to Slack');
 
