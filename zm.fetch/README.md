@@ -1,6 +1,16 @@
 This document explains how to use zm.fetch in Zoom custom actions to call third-party endpoints. It covers script syntax, how to populate headers, data, and parameters using different structures, and includes complete examples with sample endpoints.  
 
 **This information is supplemental to the Zoom developer's documentation for [Actions](https://developers.zoom.us/docs/build-flow/actions/#transformations).**  
+## Contents 
+1. [Prequisite](#prerequisite)
+2. [Understanding zm.fetch structure](#understanding-zmfetch-structure)
+3. [Context objects](#context-objects)
+4. [Basic GET requests](#basic-get-requests)
+5. [POST requests with data](#post-requests-with-data)
+6. [PUT and PATCH requests](#put-and-patch-requests)
+7. [Query parameters](#query-parameters)
+8. [Response handling](#response-handling)
+9. [Best practices](#best-practices) 
 
 ## Prerequisite
 Third-party endpoints and URLs are defined in [Connect](https://developers.zoom.us/docs/build-flow/connect/). 
