@@ -1,4 +1,4 @@
-This is an example zm.fetch structure to **create an issue** in Jira.  
+This is an example zm.fetch structure to **create an issue** for Jira.  
 
 ```JavaScript
 zm.log.info('Creating Jira issue');
