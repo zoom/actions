@@ -1,17 +1,11 @@
-This information is supplemental to the Zoom developer's documentation for [Actions](https://developers.zoom.us/docs/build-flow/actions/).  
+This document explains how to use zm.fetch in Zoom custom actions to call third-party endpoints. It covers script syntax, how to populate headers, data, and parameters using different structures, and includes complete examples with sample endpoints.  
 
-This document illustrates how to use zm.fetch within Zoom custom actions to invoke third-party endpoints. It includes information on script syntax, how to populate headers, data, and params with different structures, and provides filled-out examples with sample endpoints.  
-
-
-Based on the Zoom Actions SDK, these examples demonstrate the required parameter structures and implementation standards.
-
-This document provides examples of using `zm.fetch` within Zoom custom actions to integrate with various third-party platforms. These examples are based on the official Zoom Actions SDK and demonstrate the correct parameter structure.  
-
+**This information is supplemental to the Zoom developer's documentation for [Actions](https://developers.zoom.us/docs/build-flow/actions/#transformations).**  
 
 ## Prerequisite
 Third-party endpoints and URLs are defined in [Connect](https://developers.zoom.us/docs/build-flow/connect/). 
 
-## Understanding zm.fetch Structure 
+## Understanding zm.fetch structure 
 
 ### Key concepts 
 1. **Authentication is handled automatically**  
@@ -334,8 +328,9 @@ return zm.handleResponse(result,
 );
 ```
 ## Response handling  
-This method is a helper utility and is not required.  
+(This `zm.handleResponse` method is a helper utility and is not required.)  
 The `zm.fetch method` returns a complete response structure with the HTTP status code. The `zm.handleResponse` method checks whether the response's HTTP status code is in the 2xx or 3xx range. If it is, the `success callback` function (the second parameter of the method) is called; otherwise, the `failure callback` function (the third parameter of the method) is called. 
+
 **Note**: Make sure you map your script’s output response to a JSON object that matches your action’s output definition.  
 
 
