@@ -56,11 +56,12 @@ zm.log.info('Priority is: {}', priority.value);
 ```
 ### ctx.customField (Array)  
 An array of custom field objects defined in your action configuration. Since it's an array, you need to find the field you want by its ID.  
+
 ```JavaScript
 // Helper: Map the array into an object for convenient access
 const customFields = {};
 ctx.customField.forEach(field => {
-    customFields[field.fieldId] = field.value;
+    customFields[field.action_id] = field.value;
 });
 
 // Now access fields easily
@@ -70,7 +71,8 @@ const defaultPriority = customFields.defaultPriority;
 Or access individual fields directly from the array:  
 ```JavaScript
 // Find a specific custom field by ID
-const projectId = ctx.customField.find(f => f.fieldId === 'projectId')?.value;
+const projectId = ctx.customField.find(f => f.action_id === 'projectId')?.value;
+
 ```
 ## Basic GET requests  
 **Note**: GET requests do not require a `method` param.   
