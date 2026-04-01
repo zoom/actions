@@ -57,8 +57,8 @@ zm.log.info('Priority is: {}', priority.value);
 ### ctx.customField (Array)  
 An array of custom field objects defined in your action configuration. Since it's an array, you need to find the field you want by its ID.  
 
+**Examples:**
 ```plaintext
-**Example**:
 {
     "action_id": "myFieldName",
     "type": "string",
